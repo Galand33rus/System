@@ -19,6 +19,7 @@ body {
 .container {
     max-width: 1240px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 .menu {
@@ -48,6 +49,86 @@ body {
     text-decoration: underline;
 }
 
+.header__burger {
+    display: none;
+    position: relative;
+    width: 30px;
+    height: 21px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.header__burger span {
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    top: 9px;
+    transition: 0.2s;
+}
+
+.header__burger:hover span {
+    background-color: #0096A7;
+}
+
+.header__burger::before {
+    bottom: 0;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    transition: 0.2s;
+}
+
+.header__burger::after {
+    top: 0;
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    transition: 0.2s;
+}
+
+.header__burger:hover::before {
+    background-color: #0096A7;
+}
+
+.header__burger:hover::after {
+    background-color: #0096A7;
+}
+
+.header__burger.active span {
+    transform: rotate(45deg);
+    background-color: #0096A7;
+}
+
+.header__burger.active:before {
+    transform: rotate(45deg);
+    background-color: #0096A7;
+    top: 9px;
+}
+
+.header__burger.active:after {
+    transform: rotate(-45deg);
+    background-color: #0096A7;
+    top: 9px;
+}
+
+@media (max-width: 800px) {
+    .header__burger {
+        display: block;
+    }
+
+    .menu-list {
+        display: none;
+    }
+}
+
 /*MAIN*/
 
 .main {
@@ -59,6 +140,14 @@ body {
     display: flex;
     justify-content: space-between;
     padding-bottom: 85px;
+
+}
+
+@media (max-width: 1250px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .main-images img {
@@ -160,6 +249,7 @@ body {
 .advantages-box {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .advantages-card {
